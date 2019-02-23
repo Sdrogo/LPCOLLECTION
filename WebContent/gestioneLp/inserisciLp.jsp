@@ -122,13 +122,15 @@
                     <div class="col-md-6 col-sm-2">
                         <h4>Imagine di Copertina : </h4>
                         <input type="file" accept="image/*" onchange="previewFile()"><br>
+                    </div>
+                    <div class="col-md-6 col-sm-2">
                         <img src="./images/vynil_tumb.jpeg" height="400" alt="Image preview...">
                         <input type="hidden" name="url_copertina" id="url_copertina"/>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <input type="submit" value="Submit" class="form-control" id="submit">   
-                    </div>
-				</div>
+                </div>
+                <div class="col-md-12 col-sm-2">
+                    <input type="submit" value="Submit" class="form-control" id="submit">   
+                </div>
 			</form>
 		</div>
 	</div>

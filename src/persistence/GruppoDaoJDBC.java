@@ -75,7 +75,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 	@Override
 	public Gruppo findByPrimaryKey(Long id) {
 		Connection connection = this.dataSource.getConnection();
-		Gruppo g = null;
+		Gruppo g = new Gruppo();
 		try {
 			PreparedStatement statement;
 			String query = "select * from gruppo where id_gruppo = ?";
@@ -83,7 +83,6 @@ public class GruppoDaoJDBC implements GruppoDao {
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
-				g = new Gruppo();
 				g.setId(result.getLong("id_gruppo"));				
 				g.setNome(result.getString("nome"));
 				g.setUrl_photo(result.getString("url_photo"));
@@ -105,7 +104,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 		Connection connection = this.dataSource.getConnection();
 		List<Gruppo> gruppi = new ArrayList<>();
 		try {			
-			Gruppo g;
+			Gruppo g = new Gruppo();
 			PreparedStatement statement;
 			String query = "select * from Gruppo";
 			statement = connection.prepareStatement(query);
@@ -154,7 +153,6 @@ public class GruppoDaoJDBC implements GruppoDao {
 			}
 		}
 	}
-
 	@Override
 	public void delete(Gruppo gruppo) {
 		Connection connection = this.dataSource.getConnection();

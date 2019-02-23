@@ -82,7 +82,7 @@ public class LpDaoJDBC implements LpDao {
 	public Lp findByPrimaryKey(Long id) {
 		
 		Connection connection = this.dataSource.getConnection();
-		Lp lp = null;
+		Lp lp = new Lp();
 		try {
 			PreparedStatement statement;
 			String query = "select * from lp where id_lp = ?";
@@ -115,7 +115,7 @@ public class LpDaoJDBC implements LpDao {
 		Connection connection = this.dataSource.getConnection();
 		List<Lp> lista = new ArrayList<>();
 		try {
-			Lp lp;
+			Lp lp = new Lp();
 			PreparedStatement statement;
 			String query = "select * from Lp";
 			statement = connection.prepareStatement(query);

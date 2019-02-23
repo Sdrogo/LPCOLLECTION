@@ -81,7 +81,7 @@
             <div class="col-md-12 col-sm-12"style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
    
                <div class="col-md-12 col-sm-12">
-                    <h1>Image Gallery</h1>
+                    <h1>Lp's Gallery</h1>
                     <h3>"There's no romance in singing about an iPod"</h3><p><h3>Jack White</p></h3>
                </div>
 
@@ -95,7 +95,7 @@
             <div class="row" >
                 <div class="col-md-12 col-sm-12">
                     <div class="col-md-6 col-sm-12">
-                        <img src="${disco.getCopertina()}" class="img-responsive" alt="Gallery Image">
+                        <img src="${disco.getCopertina()}" width="500">
                      </div>
                      <div class="col-md-6 col-sm-12">
                         <p><h6>${disco.getTitolo()}</h6></p>

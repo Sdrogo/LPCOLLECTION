@@ -295,7 +295,7 @@ a:hover, a:active, a:focus {
 }
 
 .main-about {
-  background: url('../images/insert.jpg') no-repeat;
+  background: url('../images/insert-bg.jpg') no-repeat;
 }
 
 .main-single-post {
@@ -308,7 +308,7 @@ a:hover, a:active, a:focus {
 
 }
 .main-blog{
-    background: url('../images/band-bg.jpg') no-repeat;
+    background: url('../images/galleryb-bg.jpg') no-repeat;
 }
 
 .main-contact {

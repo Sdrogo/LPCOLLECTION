@@ -81,9 +81,9 @@
           <div class="row">
                <div class="col-md-12 col-sm-12"  style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
                                  <h1>Welcome to LP Collection</h1>
-                    <h3>"Vinyl is the real deal. I've always felt like, until you buy the vinyl record, 
+                    <p><h3>"Vinyl is the real deal. I've always felt like, until you buy the vinyl record, 
                         you don't really own the album. And it's not just me or a little pet thing or some 
-                        kind of retro romantic thing from the past. It is still alive."<p></p>Jack White</h3>
+                        kind of retro romantic thing from the past. It is still alive."</h3></p><h3>Jack White</h3>
                </div>
           </div>
      </div>

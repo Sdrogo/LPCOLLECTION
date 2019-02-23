@@ -75,13 +75,13 @@
 
 <!-- Home Section -->
 
-<section id="home" class="main-gallery parallax-section">
+<section id="home" class="main-blog parallax-section">
      <div class="overlay"></div>
 	        <div id="particles-js"style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
             <div class="col-md-12 col-sm-12"style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
    
                <div class="col-md-12 col-sm-12">
-                    <h1>Image Gallery</h1>
+                    <h1>Band's Gallery</h1>
                     <h3>"Steve Jobs was a pioneer of digital music. But when he went home, he listened to vinyl."</h3><p><h3>Neil Young</h3></p>
                </div>
 
@@ -95,7 +95,7 @@
             <div class="row" >
                 <div class="col-md-12 col-sm-12">
                     <div class="col-md-6 col-sm-12">
-                        <img src="${band.getUrl_photo()}" class="img-responsive" alt="Gallery Image">
+                        <img src="${band.getUrl_photo()}" width="500">
                      </div>
                      <div class="col-md-6 col-sm-12">
                         <p><h6>${band.getNome()}</h6></p>

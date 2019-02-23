@@ -37,9 +37,9 @@
      <div class="container">
           <div class="navbar-header">
                 <div class="g-signin2" data-onsuccess="onSignIn" id="myP"></div>
-                    <button id = "sign_out" onclick="SignOut()">Sign Out</button>
-                    <div id="status">
+                     <div id="status">
                     <p id="name"></p>
+                     <button id = "sign_out" onclick="SignOut()">Sign Out</button>
                 </div>
           </div>
           <div class="collapse navbar-collapse">
@@ -72,7 +72,6 @@
           <div class="row">
                <div class="col-md-offset-1 col-md-10 col-sm-12">
                     <h2>Sand us your feedback</h2>
-
 					<form name="tell" id="tell" method="post" action ="send_mail.php" autocomplete="on">
 						<div class="col-md-4 col-sm-4">
 							<input type="text" name="nome_mittente" class="form-control" id="nome_mittente" placeholder="Nome" value="">
@@ -90,16 +89,13 @@
                               <input type="submit" value="Submit" class="form-control" id="submit">
                          </div>
 					</form>
-					
                </div>
-
           </div>
      </div>
 </section>
 
-
-
 <!-- Footer Section -->
+
 <footer>
      <div class="container">
           <div class="row">
@@ -120,6 +116,7 @@
           </div>
      </div>
 </footer>
+
 <!-- Back top -->
 
 <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
@@ -156,7 +153,6 @@
 	location.reload();
 	}
 </script>
-
 
 </body>
 </html>

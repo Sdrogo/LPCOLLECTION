@@ -32,7 +32,6 @@ public class LpGalleryServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("gallery/galleryLp.jsp");
 		rd.forward(request, response);
 	}
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
