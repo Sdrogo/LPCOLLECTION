@@ -1,0 +1,2 @@
+lp(id*, titolo, anno, genere, url_copertina,id_gruppo**)
+gruppo(id*,nome, url_photo)
