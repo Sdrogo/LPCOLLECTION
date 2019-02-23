@@ -104,7 +104,6 @@
             </div>
           </c:forEach>
     </div>
-
 </section>
 
 <!-- Footer Section -->
