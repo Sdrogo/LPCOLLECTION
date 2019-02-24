@@ -43,7 +43,6 @@
                     <li><a href="inserisciLp">Insert LP</a></li>
                     <li><a href="inserisciGruppo">Insert Band</a></li>
                     <li class="active"><a href="galleryLp">Lp's Gallery</a></li>
-                    <li><a href="galleryBand">Band's Gallery</a></li>
                     <li><a href="contact.jsp">Contact</a></li>
                </ul>
           </div>
@@ -51,10 +50,21 @@
 </div>
 
 <!-- Home Section -->
+<section id="home" class="main-blog parallax-section">
+     <div class="overlay"></div>
+	        <div id="particles-js"style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
+            <div class="col-md-12 col-sm-12"style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+   
+               <div class="col-md-12 col-sm-12">
+                    <h1>${lp.getTitolo()} by ${gruppo.getNome()}</</h1>
+                    <h3>"Steve Jobs was a pioneer of digital music. But when he went home, he listened to vinyl."</h3><p><h3>Neil Young</h3></p>
+               </div>
+
+</section>
 
 <!-- Gallery Section -->
    
-<section id="gallery">
+<section id="contact">
      <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
@@ -68,7 +78,7 @@
                             <h3>Genere : ${lp.getGenere()}</h3><p>
                              <form action="#">
 					                <p><input type="hidden" id="search" value="${gruppo.getNome()} ${lp.getTitolo()} full album" autocomplete="off" class="form-control" /></p>
-					                <p><input type="submit" value="Cerca lp su Youtube" class="form-control btn btn-primary w100"></p>
+					                <input type="submit" value="Cerca su Youtube" class="form-control" id="submit">
 					        </form>
 	                 </div>
                 </div>  

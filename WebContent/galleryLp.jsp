@@ -65,7 +65,6 @@
                     <li><a href="inserisciLp">Insert LP</a></li>
                     <li><a href="inserisciGruppo">Insert Band</a></li>
                     <li class="active"><a href="galleryLp">Lp's Gallery</a></li>
-                    <li><a href="galleryBand">Band's Gallery</a></li>
                     <li><a href="contact.jsp">Contact</a></li>
                </ul>
           </div>
@@ -88,7 +87,7 @@
 
 <!-- Gallery Section -->
    
-<section id="gallery">
+<section id="contact">
     
 <c:forEach items="${lista_lp}" var="disco">
      <div class="container">
@@ -103,7 +102,7 @@
                             <input type="hidden" name="id_lp" value = "${disco.getId()}"/>
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <input type="submit" value="Dettagli LP" class="form-control btn btn-primary w100">
+                                    <input type="submit" value="Dettagli LP" class="form-control" id="submit">
                                 </div>
                             </div>
                         </form>

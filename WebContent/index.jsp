@@ -64,7 +64,6 @@
                     <li><a href="inserisciLp">Insert LP</a></li>
                     <li><a href="inserisciGruppo">Insert Band</a></li>
                     <li><a href="galleryLp">Lp's Gallery</a></li>
-                    <li><a href="galleryBand">Band's Gallery</a></li>
                     <li><a href="contact.jsp">Contact</a></li>
                </ul>
           </div>
