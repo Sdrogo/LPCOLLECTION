@@ -28,7 +28,7 @@ public class BandGalleryServlet extends HttpServlet{
 		List<Gruppo> bands = gDao.findAll();
 		request.setAttribute("gruppi", bands);
 		RequestDispatcher rd = request.getRequestDispatcher
-				("gallery/galleryGruppi.jsp");
+				("galleryGruppi.jsp");
 		rd.forward(request, response);
 	}
 	

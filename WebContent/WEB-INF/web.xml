@@ -44,25 +44,30 @@
     <servlet-name>InserisciGruppo</servlet-name>
     <url-pattern>/inserisciGruppo </url-pattern>
   </servlet-mapping>
-  
- 
   <servlet>
-  	<servlet-name>PopolaGalleryLp</servlet-name>
-  	<servlet-class>controller.LpGalleryServlet</servlet-class>
+    <servlet-name>PopolaGalleryLp</servlet-name>
+    <servlet-class>controller.LpGalleryServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>PopolaGalleryLp</servlet-name>
-  	<url-pattern>/galleryLp</url-pattern>
+    <servlet-name>PopolaGalleryLp</servlet-name>
+    <url-pattern>/galleryLp</url-pattern>
   </servlet-mapping>
-  
-  
-  
+  <servlet>
+    <servlet-name>PopolaGalleryGruppi</servlet-name>
+    <servlet-class>controller.BandGalleryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PopolaGalleryGruppi</servlet-name>
+    <url-pattern>/galleryBand</url-pattern>
+  </servlet-mapping>
     <servlet>
-  	<servlet-name>PopolaGalleryGruppi</servlet-name>
-  	<servlet-class>controller.BandGalleryServlet</servlet-class>
+    <servlet-name>DettagliLpServlet</servlet-name>
+    <servlet-class>controller.DettagliLPServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>PopolaGalleryGruppi</servlet-name>
-  	<url-pattern>/galleryBand</url-pattern>
+    <servlet-name>DettagliLpServlet</servlet-name>
+    <url-pattern>/dettagliLP</url-pattern>
   </servlet-mapping>
+  
+  
 </web-app>

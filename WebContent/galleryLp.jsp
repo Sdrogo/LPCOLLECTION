@@ -11,8 +11,6 @@
 <meta name="keywords" content="">
 <meta name="author" content="Andrea Partenope">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="google-signin-client_id" content="653205003158-1d4cr7foromdit776hca3kfardigrq3i.apps.googleusercontent.com">
-
 <title>Lp Collection - Lp's Gallery</title>
 
 <!-- Main css -->
@@ -20,6 +18,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
 
@@ -90,24 +89,29 @@
 <!-- Gallery Section -->
    
 <section id="gallery">
+    
+<c:forEach items="${lista_lp}" var="disco">
      <div class="container">
-          <c:forEach items="${lista_lp}" var="disco">
             <div class="row" >
                 <div class="col-md-12 col-sm-12">
                     <div class="col-md-6 col-sm-12">
                         <img src="${disco.getCopertina()}" width="500">
                      </div>
                      <div class="col-md-6 col-sm-12">
-                        <p><h6>${disco.getTitolo()}</h6></p>
-                        <p><h3>Band : ${disco.getNomeGruppo()}</h3></p>
-                        <p><h3>Anno di pubblicazione : ${disco.getAnno()}</h3></p>
-                        <p><h3>Genere : ${disco.getGenere()}</h3></p>
-                     </div>
+                        <h6>${disco.getTitolo()}</h6><p></p>
+                        <form action= "dettagliLP">
+                            <input type="hidden" name="id_lp" value = "${disco.getId()}"/>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <input type="submit" value="Dettagli LP" class="form-control btn btn-primary w100">
+                                </div>
+                            </div>
+                        </form>
+                    </div>       
                 </div>
             </div>
-          </c:forEach>
     </div>
-
+</c:forEach>
 </section>
 
 <!-- Footer Section -->
@@ -146,8 +150,7 @@
 <script src="js/jquery.parallax.js"></script>
 <script src="js/smoothscroll.js"></script>
 <script src="js/custom.js"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src = "js/insertManager.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 </body>
 </html>

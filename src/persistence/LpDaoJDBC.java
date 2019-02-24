@@ -96,6 +96,7 @@ public class LpDaoJDBC implements LpDao {
 				lp.setAnno(result.getInt("anno"));
 				lp.setGenere(result.getString("genere"));
 				lp.setCopertina(result.getString("url_copertina"));
+				lp.setIdGruppo(result.getLong("id_gruppo"));
 				lp.setNomeGrupo(result.getString("nome_gruppo"));
 			}
 		} catch (SQLException e) {

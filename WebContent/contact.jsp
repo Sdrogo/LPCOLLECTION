@@ -60,9 +60,10 @@
 <section id="home" class="main-contact parallax-section">
        <div class="overlay"></div>
 				<div id="particles-js"style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
-               <div class="col-md-12 col-sm-12"style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+               <div class="col-md-12 col-sm-12"style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;"> </div>
                     <h1>Contact Us</h1>
                     <h3>"The album's not dead for me; I still buy vinyl albums."</h3><p><h3>Jimi Page</h3></p>
+           
 </section>
 
 <!-- Contact Section -->
