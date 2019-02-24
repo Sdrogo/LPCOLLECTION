@@ -124,7 +124,7 @@
                         <input type="file" accept="image/*" onchange="previewFile()"><br>
                     </div>
                     <div class="col-md-6 col-sm-2">
-                        <img src="./images/vynil_tumb.jpeg" height="400" alt="Image preview...">
+                        <img src="./images/vynil_tumb.jpeg" width="400" alt="Image preview...">
                         <input type="hidden" name="url_copertina" id="url_copertina"/>
                     </div>
                 </div>

@@ -34,7 +34,7 @@ public class InserisciLpServlet extends HttpServlet{
 		if(!lpDao.findByName(titolo)) {
 			Lp new_lp = new Lp(persistence.DataSource.getInstance().getConnection(),titolo,anno,genere,url,id_gruppo, nomeGruppo);
 			lpDao.save(new_lp);
-			RequestDispatcher rd = req.getRequestDispatcher("gestioneLp/inserisciLp.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 			rd.forward(req, resp);
 		}
 	}

@@ -94,7 +94,7 @@
                 <div class="col-md-6 col-sm-2">
                     <h4>Foto del Gruppo : </h4>
                     <input type="file" accept="image/*" onchange="previewFile()"><br>
-                    <img src="./images/my-band.jpg" height="400" alt="Image preview...">
+                    <img src="./images/my-band.jpg" width="400" alt="Image preview...">
 				    <input type="hidden" name="url_photo" id="url_photo"/>
                 </div>
             </div>
