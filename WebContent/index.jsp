@@ -39,26 +39,10 @@
         <div class="container">
             <div class="navbar-header">
                 <div class="g-signin2" data-onsuccess="onSignIn" id="myP"></div>
-                <p id="name"></p>
                 <div id="status">
+                    <p id="name"></p>
+                    <button id="sign_out" onclick="SignOut()">Sign Out</button>
                 </div>
-                <script type="text/javascript">
-                    function onSignIn(googleUser) {
-                        // window.location.href='success.jsp';
-                        var profile = googleUser.getBasicProfile();
-                        var name = profile.getName();
-                        var email = profile.getEmail();
-                        document.getElementById("name").innerHTML = name;
-                        document.getElementById("myP").style.visibility = "hidden";
-                    }
-                </script>
-                <button onclick="SignOut()">Sign Out</button>
-                <script>
-                    function SignOut() {
-                        gapi.auth2.getAuthInstance().disconnect();
-                        location.reload();
-                    }
-                </script>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -73,19 +57,21 @@
     </div>
 
     <!-- Home Section -->
-
     <section id="home" class="main-home parallax-section">
+        <div class="overlay"></div>
         <div id="particles-js" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
             unselectable="on" onselectstart="return false;" onmousedown="return false;">
         </div>
+        <div class="container">
             <div class="row">
-                <div class="col-md-12 col-sm-6" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+                <div class="col-md-12 col-sm-12" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
                     unselectable="on" onselectstart="return false;" onmousedown="return false;">
                     <h1>Welcome to LP Collection</h1>
                     <h3>"Vinyl is the real deal. I've always felt like, until you buy the vinyl record,
                         you don't really own the album. And it's not just me or a little pet thing or some
                         kind of retro romantic thing from the past. It is still alive."<p></p>Jack White</h3>
                 </div>
+            </div>
         </div>
     </section>
 
@@ -104,9 +90,6 @@
                     <h5> Andrea Partenope</h5>
                     <h5> Matricola : 151807</h5>
                     <h5> <a href="mailto:andreapartenope@gmail.com">andreapartenope@gmail.com</a></h5>
-                </div>
-                <div class="clearfix col-md-12 col-sm-12">
-                    <hr>
                 </div>
             </div>
         </div>
@@ -127,6 +110,27 @@
     <script src="js/custom.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+    <script type="text/javascript">
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var name = profile.getName();
+            var email = profile.getEmail();
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("myP").style.visibility = "hidden";
+            document.getElementById("nome_mittente").setAttribute("value", name);
+            document.getElementById("email_mittente").setAttribute("value", email);
+            document.getElementById("nome_mittente").setAttribute("readonly", true);
+            document.getElementById("email_mittente").setAttribute("readonly", true);
+
+        }
+    </script>
+
+    <script>
+        function SignOut() {
+            gapi.auth2.getAuthInstance().disconnect();
+            location.reload();
+        }
+    </script>
 </body>
 
 </html>

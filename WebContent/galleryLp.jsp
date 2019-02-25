@@ -40,26 +40,7 @@
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <div class="g-signin2" data-onsuccess="onSignIn" id="myP"></div>
-                <p id="name"></p>
-                <div id="status">
-                </div>
-                <script type="text/javascript">
-                    function onSignIn(googleUser) {
-                        var profile = googleUser.getBasicProfile();
-                        var name = profile.getName();
-                        var email = profile.getEmail();
-                        document.getElementById("name").innerHTML = name;
-                        document.getElementById("myP").style.visibility = "hidden";
-                    }
-                </script>
-                <button onclick="SignOut()">Sign Out</button>
-                <script>
-                    function SignOut() {
-                        gapi.auth2.getAuthInstance().disconnect();
-                        location.reload();
-                    }
-                </script>
+            
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -73,19 +54,24 @@
         </div>
     </div>
 
+
     <!-- Home Section -->
-    <section id="home" class="main-blog parallax-section">
-        <div class="overlay"></div>
-        <div id="particles-js" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
-            unselectable="on" onselectstart="return false;" onmousedown="return false;">
-        <div class="col-md-12 col-sm-6" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
-            unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
-            <h1>Lp's Gallery</h1>
+	<section id="home" class="main-blog parallax-section">
+		<div class="overlay"></div>
+		<div id="particles-js"
+			style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;"
+			unselectable="on" onselectstart="return false;"
+			onmousedown="return false;"></div>
+		<div class="col-md-12 col-sm-3"
+			style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;"
+			unselectable="on" onselectstart="return false;"
+			onmousedown="return false;">
+			<h1>Lp's Gallery</h1>
             <h3>"There's no romance in singing about an iPod"</h3>
             <p></p>
             <h3>Jack White</h3>
-        </div>
-    </section>
+		</div>
+	</section>
 
     <!-- Gallery Section -->
 
@@ -132,14 +118,9 @@
                 </div>
                 <div class="col-md-4 col-md-offset-1 col-sm-6">
                     <h3>Developer</h3>
-                    <h5>Andrea Partenope</h5>
-                    <h5>Matricola : 151807</h5>
-                    <h5>
-                        <a href="mailto:andreapartenope@gmail.com">andreapartenope@gmail.com</a>
-                    </h5>
-                </div>
-                <div class="clearfix col-md-12 col-sm-12">
-                    <hr>
+                    <h5> Andrea Partenope</h5>
+                    <h5> Matricola : 151807</h5>
+                    <h5> <a href="mailto:andreapartenope@gmail.com">andreapartenope@gmail.com</a></h5>
                 </div>
             </div>
         </div>
@@ -158,6 +139,7 @@
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </body>
 
 </html>

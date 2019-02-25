@@ -11,7 +11,7 @@
 <meta name="author" content="Andrea Partenope">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>${lp.getTitolo()}${gruppo.getNome()}</title>
+<title>${lp.getTitolo()} by ${gruppo.getNome()}</title>
 
 <!-- Main css -->
 
@@ -80,9 +80,9 @@
 					</div>
 					<div class="col-md-6 col-sm-12">
 						<h3>Anno : ${lp.getAnno()}</h3>
-						<p>
+						<p><hr>
 						<h3>Genere : ${lp.getGenere()}</h3>
-						<p>
+						<p><hr>
 						<form action="#">
 							<p>
 								<input type="hidden" id="search"
@@ -109,29 +109,23 @@
 	</section>
 
 	<!-- Footer Section -->
-
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5 col-md-offset-1 col-sm-6">
-					<h3>Lp Collection</h3>
-					<h5>Progetto per il corso di Web Computing</h5>
-					<h5>Anno Accademico 2018/19</h5>
-				</div>
-				<div class="col-md-4 col-md-offset-1 col-sm-6">
-					<h3>Developer</h3>
-					<h5>Andrea Partenope</h5>
-					<h5>Matricola : 151807</h5>
-					<h5>
-						<a href="mailto:andreapartenope@gmail.com">andreapartenope@gmail.com</a>
-					</h5>
-				</div>
-				<div class="clearfix col-md-12 col-sm-12">
-					<hr>
-				</div>
-			</div>
-		</div>
-	</footer>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <h3>Lp Collection</h3>
+                    <h5>Progetto per il corso di Web Computing</h5>
+                    <h5>Anno Accademico 2018/19</h5>
+                </div>
+                <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Developer</h3>
+                    <h5> Andrea Partenope</h5>
+                    <h5> Matricola : 151807</h5>
+                    <h5> <a href="mailto:andreapartenope@gmail.com">andreapartenope@gmail.com</a></h5>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 	<!-- Back top -->
 

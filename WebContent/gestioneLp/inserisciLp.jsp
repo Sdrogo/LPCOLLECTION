@@ -184,9 +184,6 @@
                     <h5> Matricola : 151807</h5>
                     <h5> <a href="mailto:andreapartenope@gmail.com">andreapartenope@gmail.com</a></h5>
                 </div>
-                <div class="clearfix col-md-12 col-sm-12">
-                    <hr>
-                </div>
             </div>
         </div>
     </footer>

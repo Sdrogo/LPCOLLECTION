@@ -39,40 +39,22 @@
 
 	<!-- Navigation section  -->
 
-	<div class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<div class="g-signin2" data-onsuccess="onSignIn" id="myP"></div>
-				<p id="name"></p>
-				<div id="status"></div>
-				<script type="text/javascript">
-					function onSignIn(googleUser) {
-						var profile = googleUser.getBasicProfile();
-						var name = profile.getName();
-						var email = profile.getEmail();
-						document.getElementById("name").innerHTML = name;
-						document.getElementById("myP").style.visibility = "hidden";
-					}
-				</script>
-				<button onclick="SignOut()">Sign Out</button>
-				<script>
-					function SignOut() {
-						gapi.auth2.getAuthInstance().disconnect();
-						location.reload();
-					}
-				</script>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="index.jsp">Home</a></li>
-					<li><a href="inserisciLp">Insert LP</a></li>
-					<li><a href="inserisciGruppo">Insert Band</a></li>
-					<li class="active"><a href="galleryLp">Lp's Gallery</a></li>
-					<li><a href="contact.jsp">Contact</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+   <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+            
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.jsp">Home</a></li>
+                    <li><a href="inserisciLp">Insert LP</a></li>
+                    <li><a href="inserisciGruppo">Insert Band</a></li>
+                    <li  class="active"><a href="galleryLp">Lp's Gallery</a></li>
+                    <li><a href="contact.jsp">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 	<!-- Home Section -->
 	<section id="home" class="main-blog parallax-section">
@@ -138,9 +120,6 @@
 					<h5>
 						<a href="mailto:andreapartenope@gmail.com">andreapartenope@gmail.com</a>
 					</h5>
-				</div>
-				<div class="clearfix col-md-12 col-sm-12">
-					<hr>
 				</div>
 			</div>
 		</div>
