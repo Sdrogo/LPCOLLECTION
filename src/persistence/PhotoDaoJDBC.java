@@ -11,9 +11,9 @@ import model.Photo;
 import persistence.dao.PhotoDao;
 
 public class PhotoDaoJDBC implements PhotoDao {
-
+	
 	private DataSource dataSource;
-
+	
 	public PhotoDaoJDBC(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
@@ -23,8 +23,7 @@ public class PhotoDaoJDBC implements PhotoDao {
 		if (photo.getId() == null) {
 			throw new PersistenceException("Gruppo non memorizzato, un gruppo deve avere un Id");
 		}
-		Connection connection = this.dataSource.getConnection();
-
+		Connection connection = dataSource.getConnection();
 		try {
 			String insert = "insert into photo(id_gruppo,url_photo) values (?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
@@ -51,8 +50,8 @@ public class PhotoDaoJDBC implements PhotoDao {
 
 	@Override
 	public Photo findByPrimaryKey(Long id) {
-		Connection connection = this.dataSource.getConnection();
 		Photo g = new Photo();
+		Connection connection = dataSource.getConnection();
 		try {
 			PreparedStatement statement;
 			String query = "select * from photo where id_gruppo = ?";
@@ -77,8 +76,8 @@ public class PhotoDaoJDBC implements PhotoDao {
 
 	@Override
 	public List<Photo> findAll() {
-		Connection connection = this.dataSource.getConnection();
 		List<Photo> copertine = new ArrayList<>();
+		Connection connection = dataSource.getConnection();
 		try {
 			Photo g = new Photo();
 			PreparedStatement statement;
@@ -98,13 +97,12 @@ public class PhotoDaoJDBC implements PhotoDao {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-		// TODO Auto-generated method stub
 		return copertine;
 	}
 
 	@Override
 	public void update(Photo copertina) {
-		Connection connection = this.dataSource.getConnection();
+		Connection connection = dataSource.getConnection();
 		try {
 			String update = "update copertina SET url_photo = ? WHERE id_gruppo = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
@@ -130,7 +128,7 @@ public class PhotoDaoJDBC implements PhotoDao {
 
 	@Override
 	public void delete(Photo photo) {
-		Connection connection = this.dataSource.getConnection();
+		Connection connection = dataSource.getConnection();
 		try {
 			String delete = "delete FROM photo WHERE id_gruppo = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);

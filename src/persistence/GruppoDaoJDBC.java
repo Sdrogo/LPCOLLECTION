@@ -103,9 +103,9 @@ public class GruppoDaoJDBC implements GruppoDao {
 	public List<Gruppo> findAll() {
 		Connection connection = this.dataSource.getConnection();
 		List<Gruppo> gruppi = new ArrayList<>();
+		Gruppo g = new Gruppo();
+		PreparedStatement statement;
 		try {
-			Gruppo g = new Gruppo();
-			PreparedStatement statement;
 			String query = "select * from Gruppo";
 			statement = connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
@@ -131,7 +131,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 	public void update(Gruppo gruppo) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update Gruppo SET Nome = ? WHERE id = ?";
+			String update = "update Gruppo SET nome = ? WHERE id = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, gruppo.getNome());
 			statement.setLong(2, gruppo.getId());

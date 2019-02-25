@@ -80,9 +80,6 @@
             <form action="ottieniLpBand">
                 <div class="col-md-12 col-sm-12">
                     <div class="row">
-                        <img src="${band.getUrl_photo()}" width="500">
-                    </div>
-                    <div class="row">
                         <div class="col-md-2 col-sm-2"></div>
                         <div class="col-md-8 col-sm-2">
                             <h4>Seleziona un Gruppo :</h4>
@@ -138,7 +135,6 @@
     <script src="js/jquery.parallax.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </body>
 

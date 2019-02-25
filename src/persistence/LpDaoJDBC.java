@@ -12,50 +12,50 @@ import model.Lp;
 import persistence.dao.LpDao;
 
 public class LpDaoJDBC implements LpDao {
+
 	private DataSource dataSource;
 	
 	public LpDaoJDBC(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-	
+
 	@Override
-	public void save(Lp lp)  {
-		
-		Connection connection = this.dataSource.getConnection();
-		
-		if(lp.getIdGruppo() == null ){
+	public void save(Lp lp) {
+
+		if (lp.getIdGruppo() == null) {
 			throw new PersistenceException("Lp Non memorizzato : un Lp deve avere un Gruppo");
 		}
-		if(!findByName(lp.getTitolo())){
-			try {
-				String insert = "insert into lp (id_lp, titolo, anno, genere, id_gruppo) values (?,?,?,?,?)";
-				PreparedStatement statement = connection.prepareStatement(insert);
-				statement.setLong(1, lp.getId());
-				statement.setString(2, lp.getTitolo());
-				statement.setInt(3, lp.getAnno());
-				statement.setString(4, lp.getGenere());
-				statement.setLong(5, lp.getIdGruppo());
-				statement.executeUpdate();
-				this.update(lp);
-				} catch (SQLException e) {
-				if (connection != null) {
-					try {
-						connection.rollback();
-					} catch(SQLException excep) {
-						throw new PersistenceException(e.getMessage());
-					}
-				} 
-			} finally {
+		Connection connection = dataSource.getConnection();
+		try {
+			String insert = "insert into lp (id_lp, titolo, anno, genere, id_gruppo) values (?,?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setLong(1, lp.getId());
+			statement.setString(2, lp.getTitolo());
+			statement.setInt(3, lp.getAnno());
+			statement.setString(4, lp.getGenere());
+			statement.setLong(5, lp.getIdGruppo());
+			statement.executeUpdate();
+			this.update(lp);
+		}catch (SQLException e) {
+			if (connection != null) {
 				try {
-					connection.close();
-				} catch (SQLException e) {
+					connection.rollback();
+				}catch (SQLException excep) {
 					throw new PersistenceException(e.getMessage());
 				}
 			}
+		}finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
 		}
-	}  
+
+	}
+
 	public boolean findByName(String titolo) {
-		Connection connection = this.dataSource.getConnection();
+		Connection connection = dataSource.getConnection();
 		try {
 			PreparedStatement statement;
 			String query = "select * from lp where titolo = ?";
@@ -73,22 +73,22 @@ public class LpDaoJDBC implements LpDao {
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
 			}
-		}	
+		}
 		return false;
 	}
-	
+
 	@Override
 	public Lp findByPrimaryKey(Long id) {
-		
-		Connection connection = this.dataSource.getConnection();
+
 		Lp lp = new Lp();
+		Connection connection = dataSource.getConnection();
 		try {
 			PreparedStatement statement;
 			String query = "select * from lp where id_lp = ?";
 			statement = connection.prepareStatement(query);
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
-			if(result.next()) {
+			if (result.next()) {
 				lp.setId(result.getLong("id_lp"));
 				lp.setTitolo(result.getString("titolo"));
 				lp.setAnno(result.getInt("anno"));
@@ -106,17 +106,18 @@ public class LpDaoJDBC implements LpDao {
 		}
 		return lp;
 	}
+
 	@Override
 	public List<Lp> findAll() {
-		Connection connection = this.dataSource.getConnection();
 		List<Lp> lista = new ArrayList<>();
+		Connection connection = dataSource.getConnection();
 		try {
 			Lp lp = new Lp();
 			PreparedStatement statement;
 			String query = "select * from Lp";
 			statement = connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
-			while(result.next()) {
+			while (result.next()) {
 				lp = findByPrimaryKey(result.getLong("id_lp"));
 				lista.add(lp);
 			}
@@ -128,14 +129,14 @@ public class LpDaoJDBC implements LpDao {
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
 			}
-		}	
+		}
 		Collections.sort(lista);
 		return lista;
 	}
-	
+
 	public List<Lp> findByBand(Long id) {
-		Connection connection = this.dataSource.getConnection();
 		List<Lp> lista = new ArrayList<>();
+		Connection connection = dataSource.getConnection();
 		try {
 			Lp lp = new Lp();
 			PreparedStatement statement;
@@ -143,7 +144,7 @@ public class LpDaoJDBC implements LpDao {
 			statement = connection.prepareStatement(query);
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
-			while(result.next()) {
+			while (result.next()) {
 				lp = findByPrimaryKey(result.getLong("id_lp"));
 				lista.add(lp);
 			}
@@ -155,14 +156,14 @@ public class LpDaoJDBC implements LpDao {
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
 			}
-		}	
+		}
 		Collections.sort(lista);
 		return lista;
 	}
-	
+
 	@Override
 	public void update(Lp lp) {
-		Connection connection = this.dataSource.getConnection();
+		Connection connection = dataSource.getConnection();
 		try {
 			String update = "update lp SET titolo = ?, anno = ?, genere = ?, id_gruppo = ? WHERE id_lp = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
@@ -171,20 +172,20 @@ public class LpDaoJDBC implements LpDao {
 			statement.setString(3, lp.getGenere());
 			statement.setLong(4, lp.getIdGruppo());
 			statement.setLong(5, lp.getId());
-			
+
 			statement.executeUpdate();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			if (connection != null) {
 				try {
 					connection.rollback();
-				} catch(SQLException excep) {
+				} catch (SQLException excep) {
 					throw new PersistenceException(e.getMessage());
 				}
-			} 
-		}finally{
+			}
+		} finally {
 			try {
 				connection.close();
-			}catch (SQLException e) {
+			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
@@ -192,12 +193,12 @@ public class LpDaoJDBC implements LpDao {
 
 	@Override
 	public void delete(Lp lp) {
-		Connection connection = this.dataSource.getConnection();
+		Connection connection = dataSource.getConnection();
 		try {
 			String delete = "delete FROM lp WHERE id_lp = ? ";
 			System.out.println(lp.getId());
 			PreparedStatement statement = connection.prepareStatement(delete);
-			statement.setLong(1, lp.getId());		
+			statement.setLong(1, lp.getId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

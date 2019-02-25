@@ -27,10 +27,10 @@ public class LpGalleryServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("gallery/galleryLp.jsp");
 		GruppoDao gDao = DatabaseManager.getInstance().getDaoFactory().getGruppoDAO();
 		List<Gruppo> bands = gDao.findAll();
 		request.setAttribute("lista_gruppi", bands);
-		RequestDispatcher rd = request.getRequestDispatcher("gallery/galleryLp.jsp");
 		rd.forward(request, response);
 	}
 

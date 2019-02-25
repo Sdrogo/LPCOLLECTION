@@ -17,7 +17,8 @@ $(function () {
             q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
             maxResults: 1,
             order: "relevance",
-            publishedAfter: "2015-01-01T00:00:00Z"
+            videoEmbeddable : "true",
+            videoDuration : "long"
         });
         // execute the request
         request.execute(function (response) {
