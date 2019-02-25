@@ -53,20 +53,21 @@
     <url-pattern>/galleryLp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>PopolaGalleryGruppi</servlet-name>
-    <servlet-class>controller.BandGalleryServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>PopolaGalleryGruppi</servlet-name>
-    <url-pattern>/galleryBand</url-pattern>
-  </servlet-mapping>
-    <servlet>
     <servlet-name>DettagliLpServlet</servlet-name>
     <servlet-class>controller.DettagliLPServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DettagliLpServlet</servlet-name>
     <url-pattern>/dettagliLP</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>OttieniLpGruppo</servlet-name>
+    <servlet-class>controller.GetLpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OttieniLpGruppo</servlet-name>
+    <url-pattern>/ottieniLpBand</url-pattern>
   </servlet-mapping>
   
   

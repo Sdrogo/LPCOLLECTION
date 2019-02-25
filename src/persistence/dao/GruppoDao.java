@@ -6,11 +6,16 @@ import model.Gruppo;
 
 public interface GruppoDao {
 
-	public void save(Gruppo gruppo);  // Create
-	public Gruppo findByPrimaryKey(Long id);     // Retrieve
-	public List<Gruppo> findAll();       
-	public void update(Gruppo gruppo); //Update
-	public void delete(Gruppo gruppo); //Delete	
+	public void save(Gruppo gruppo); // Create
+
+	public Gruppo findByPrimaryKey(Long id); // Retrieve
+
+	public List<Gruppo> findAll();
+
+	public void update(Gruppo gruppo); // Update
+
+	public void delete(Gruppo gruppo); // Delete
+
 	public boolean findByName(String nome);
-	
+
 }

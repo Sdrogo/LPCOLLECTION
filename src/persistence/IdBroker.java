@@ -5,11 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class IdBroker {
 
 	// Standard SQL (queste stringhe andrebbero scritte in un file di configurazione
-	//private static final String query = "SELECT NEXT VALUE FOR SEQ_ID AS id";
+	// private static final String query = "SELECT NEXT VALUE FOR SEQ_ID AS id";
 	// postgresql
 	private static final String query = "SELECT nextval('id') AS id";
 

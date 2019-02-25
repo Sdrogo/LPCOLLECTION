@@ -15,13 +15,12 @@ import persistence.dao.LpDao;
 import model.Gruppo;
 import model.Lp;
 
-public class InserisciLpServlet extends HttpServlet{
+public class InserisciLpServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	
-	protected void doPost(HttpServletRequest req, 
-			HttpServletResponse resp) throws ServletException, IOException {
-		
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		LpDao lpDao = DatabaseManager.getInstance().getDaoFactory().getLpDAO();
 		String titolo = req.getParameter("titolo");
 		int anno = Integer.parseInt(req.getParameter("anno"));
@@ -31,8 +30,9 @@ public class InserisciLpServlet extends HttpServlet{
 		Gruppo g = gDao.findByPrimaryKey(id_gruppo);
 		String nomeGruppo = g.getNome();
 		String url = req.getParameter("url_copertina");
-		if(!lpDao.findByName(titolo)) {
-			Lp new_lp = new Lp(persistence.DataSource.getInstance().getConnection(),titolo,anno,genere,url,id_gruppo, nomeGruppo);
+		if (!lpDao.findByName(titolo)) {
+			Lp new_lp = new Lp(persistence.DataSource.getInstance().getConnection(), titolo, anno, genere, url,
+					id_gruppo, nomeGruppo);
 			lpDao.save(new_lp);
 			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 			rd.forward(req, resp);

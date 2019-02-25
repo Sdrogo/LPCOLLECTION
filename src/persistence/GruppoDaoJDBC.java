@@ -14,33 +14,33 @@ import persistence.dao.GruppoDao;
 public class GruppoDaoJDBC implements GruppoDao {
 
 	private DataSource dataSource;
-	
+
 	public GruppoDaoJDBC(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
 	@Override
 	public void save(Gruppo gruppo) {
-		if(gruppo.getId() == null) {
-			throw new PersistenceException("Gruppo non memorizzato, un gruppo deve avere un Id");	
+		if (gruppo.getId() == null) {
+			throw new PersistenceException("Gruppo non memorizzato, un gruppo deve avere un Id");
 		}
 		Connection connection = this.dataSource.getConnection();
-		if(!findByName(gruppo.getNome())) {	
+		if (!findByName(gruppo.getNome())) {
 			try {
 				String insert = "insert into gruppo(id_gruppo, nome, url_photo) values (?,?,?)";
 				PreparedStatement statement = connection.prepareStatement(insert);
 				statement.setLong(1, gruppo.getId());
 				statement.setString(2, gruppo.getNome());
 				statement.setString(3, gruppo.getUrl_photo());
-				statement.executeUpdate();		
+				statement.executeUpdate();
 			} catch (SQLException e) {
 				if (connection != null) {
 					try {
 						connection.rollback();
-					} catch(SQLException excep) {
+					} catch (SQLException excep) {
 						throw new PersistenceException(e.getMessage());
 					}
-				} 
+				}
 			} finally {
 				try {
 					connection.close();
@@ -50,6 +50,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 			}
 		}
 	}
+
 	public boolean findByName(String nome) {
 		Connection connection = this.dataSource.getConnection();
 		try {
@@ -69,9 +70,10 @@ public class GruppoDaoJDBC implements GruppoDao {
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
 			}
-		}	
+		}
 		return false;
 	}
+
 	@Override
 	public Gruppo findByPrimaryKey(Long id) {
 		Connection connection = this.dataSource.getConnection();
@@ -83,7 +85,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
-				g.setId(result.getLong("id_gruppo"));				
+				g.setId(result.getLong("id_gruppo"));
 				g.setNome(result.getString("nome"));
 				g.setUrl_photo(result.getString("url_photo"));
 			}
@@ -95,7 +97,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
 			}
-		}	
+		}
 		return g;
 	}
 
@@ -103,7 +105,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 	public List<Gruppo> findAll() {
 		Connection connection = this.dataSource.getConnection();
 		List<Gruppo> gruppi = new ArrayList<>();
-		try {			
+		try {
 			Gruppo g = new Gruppo();
 			PreparedStatement statement;
 			String query = "select * from Gruppo";
@@ -115,7 +117,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
-		}	 finally {
+		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
@@ -126,7 +128,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 		Collections.sort(gruppi);
 		return gruppi;
 	}
-	
+
 	@Override
 	public void update(Gruppo gruppo) {
 		Connection connection = this.dataSource.getConnection();
@@ -141,10 +143,10 @@ public class GruppoDaoJDBC implements GruppoDao {
 			if (connection != null) {
 				try {
 					connection.rollback();
-				} catch(SQLException excep) {
+				} catch (SQLException excep) {
 					throw new PersistenceException(e.getMessage());
 				}
-			} 
+			}
 		} finally {
 			try {
 				connection.close();
@@ -153,6 +155,7 @@ public class GruppoDaoJDBC implements GruppoDao {
 			}
 		}
 	}
+
 	@Override
 	public void delete(Gruppo gruppo) {
 		Connection connection = this.dataSource.getConnection();
@@ -171,5 +174,5 @@ public class GruppoDaoJDBC implements GruppoDao {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-	}	
+	}
 }

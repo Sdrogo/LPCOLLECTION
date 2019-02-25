@@ -90,7 +90,6 @@ public class LpDaoJDBC implements LpDao {
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
 			if(result.next()) {
-				lp = new Lp(connection);
 				lp.setId(result.getLong("id_lp"));
 				lp.setTitolo(result.getString("titolo"));
 				lp.setAnno(result.getInt("anno"));
@@ -112,7 +111,6 @@ public class LpDaoJDBC implements LpDao {
 	}
 	@Override
 	public List<Lp> findAll() {
-
 		Connection connection = this.dataSource.getConnection();
 		List<Lp> lista = new ArrayList<>();
 		try {
@@ -120,6 +118,33 @@ public class LpDaoJDBC implements LpDao {
 			PreparedStatement statement;
 			String query = "select * from Lp";
 			statement = connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			while(result.next()) {
+				lp = findByPrimaryKey(result.getLong("id_lp"));
+				lista.add(lp);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}	
+		Collections.sort(lista);
+		return lista;
+	}
+	
+	public List<Lp> findByBand(Long id) {
+		Connection connection = this.dataSource.getConnection();
+		List<Lp> lista = new ArrayList<>();
+		try {
+			Lp lp = new Lp();
+			PreparedStatement statement;
+			String query = "select * from Lp where id_gruppo = ?";
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
 			while(result.next()) {
 				lp = findByPrimaryKey(result.getLong("id_lp"));

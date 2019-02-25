@@ -122,6 +122,8 @@ a:hover, a:active, a:focus {
 .main-blog,
 .main-contact {
   height: 65vh;
+    padding-top: 10px;
+    padding-bottom: 15px;
 }
 .overlay {
   background: rgba(0,0,0,0.7 );
@@ -313,6 +315,7 @@ a:hover, a:active, a:focus {
 
 .main-contact {
   background: url('../images/contact-bg.jpg') no-repeat;
+    text-align: center;
 
 }
 
@@ -358,8 +361,13 @@ a:hover, a:active, a:focus {
   padding-left: 0px;
 }
 
+#contact .col-md-8 {
+    padding-top: 10;
+    padding-left: 0;
+}
 #contact .col-md-12 {
-  padding-left: 0;
+    padding-top: 10;
+    padding-left: 0;
 }
 
 #contact form {

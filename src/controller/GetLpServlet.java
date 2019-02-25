@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,25 +16,32 @@ import persistence.DatabaseManager;
 import persistence.dao.GruppoDao;
 import persistence.dao.LpDao;
 
-@WebServlet("/dettagliLPServlet")
-public class DettagliLPServlet extends HttpServlet {
+@WebServlet("/GetLpServlet")
+public class GetLpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	public GetLpServlet() {
+		super();
+
+	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		GruppoDao gDao = DatabaseManager.getInstance().getDaoFactory().getGruppoDAO();
+
+		RequestDispatcher rd = request.getRequestDispatcher("lpGruppo.jsp");
+		Long id_gruppo = Long.parseLong(request.getParameter("id_gruppo"));
 		LpDao lpDao = DatabaseManager.getInstance().getDaoFactory().getLpDAO();
-		Long id_lp = Long.parseLong(request.getParameter("id_lp"));
-		Lp disco = lpDao.findByPrimaryKey(id_lp);
-		Gruppo band = gDao.findByPrimaryKey(disco.getIdGruppo());
-		request.setAttribute("gruppo", band);
-		request.setAttribute("lp", disco);
-		RequestDispatcher rd = request.getRequestDispatcher("dettagliLp.jsp");
+		GruppoDao gDao = DatabaseManager.getInstance().getDaoFactory().getGruppoDAO();
+		Gruppo g = gDao.findByPrimaryKey(id_gruppo);
+		List<Lp> lista = lpDao.findByBand(id_gruppo);
+		request.setAttribute("lista_lp", lista);
+		request.setAttribute("gruppo", g);
 		rd.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 	}
 
 }

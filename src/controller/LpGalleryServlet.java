@@ -10,31 +10,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Gruppo;
 import model.Lp;
 import persistence.DatabaseManager;
+import persistence.dao.GruppoDao;
 import persistence.dao.LpDao;
 
 @WebServlet("/GalleryServlet")
 public class LpGalleryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
-    public LpGalleryServlet() {
-        super();
-       
-    }
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		LpDao lpDao = DatabaseManager.getInstance().getDaoFactory().getLpDAO();
-		List<Lp> lista = lpDao.findAll();
-		request.setAttribute("lista_lp", lista);
+	public LpGalleryServlet() {
+		super();
+
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// LpDao lpDao = DatabaseManager.getInstance().getDaoFactory().getLpDAO();
+		// List<Lp> lista = lpDao.findAll();
+		// request.setAttribute("lista_lp", lista);
+		GruppoDao gDao = DatabaseManager.getInstance().getDaoFactory().getGruppoDAO();
 		RequestDispatcher rd = request.getRequestDispatcher("galleryLp.jsp");
+		List<Gruppo> bands = gDao.findAll();
+		request.setAttribute("lista_gruppi", bands);
 		rd.forward(request, response);
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 	}
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 <meta name="author" content="Andrea Partenope">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>${lp.getTitolo()}${gruppo.getNome()}</title>
+<title>Lp Collection - Lp's Gallery</title>
 
 <!-- Main css -->
 
@@ -37,9 +38,30 @@
 	</div>
 
 	<!-- Navigation section  -->
+
 	<div class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="container">
-			<div class="navbar-header"></div>
+			<div class="navbar-header">
+				<div class="g-signin2" data-onsuccess="onSignIn" id="myP"></div>
+				<p id="name"></p>
+				<div id="status"></div>
+				<script type="text/javascript">
+					function onSignIn(googleUser) {
+						var profile = googleUser.getBasicProfile();
+						var name = profile.getName();
+						var email = profile.getEmail();
+						document.getElementById("name").innerHTML = name;
+						document.getElementById("myP").style.visibility = "hidden";
+					}
+				</script>
+				<button onclick="SignOut()">Sign Out</button>
+				<script>
+					function SignOut() {
+						gapi.auth2.getAuthInstance().disconnect();
+						location.reload();
+					}
+				</script>
+			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="index.jsp">Home</a></li>
@@ -59,13 +81,11 @@
 			style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;"
 			unselectable="on" onselectstart="return false;"
 			onmousedown="return false;"></div>
-		<div class="col-md-12 col-sm-6"
+		<div class="col-md-12 col-sm-3"
 			style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;"
 			unselectable="on" onselectstart="return false;"
 			onmousedown="return false;">
-			<h1>${lp.getTitolo()}</h1>
-			<p></p>
-			<h2>by ${gruppo.getNome()}</h2>
+			<h1>${gruppo.getNome()}</h1>
 		</div>
 	</section>
 
@@ -73,39 +93,32 @@
 
 	<section id="contact">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12 col-sm-12">
-					<div class="col-md-6 col-sm-12">
-						<img src="${lp.getCopertina()}" width="500">
-					</div>
-					<div class="col-md-6 col-sm-12">
-						<h3>Anno : ${lp.getAnno()}</h3>
-						<p>
-						<h3>Genere : ${lp.getGenere()}</h3>
-						<p>
-						<form action="#">
-							<p>
-								<input type="hidden" id="search"
-									value="${gruppo.getNome()} ${lp.getTitolo()} full album"
-									autocomplete="off" class="form-control" />
-							</p>
-							<input type="submit" value="Cerca su Youtube"
-								class="form-control" id="submit">
-						</form>
+			<div class="col-md-12 col-sm-12">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<img src="${gruppo.getUrl_photo()}" width="500">
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-sm-12">
-					<div class="col-md-2 col-sm-12"></div>
-					<div class="col-md-8 col-sm-12">
-						<div id="results"></div>
+				<c:forEach items="${lista_lp}" var="disco">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<h2>${disco.getTitolo()}</h2>
+						</div>
+						<div class="col-md-6 col-sm-12">
+							<form action="dettagliLP">
+								<input type="hidden" name="id_lp" value="${disco.getId()}" />
+								<div class="row">
+									<div class="col-md-6 col-md-offset-3">
+										<input type="submit" value="Dettagli LP" class="form-control"
+											id="submit">
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
-					<div class="col-md-2 col-sm-12"></div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
-
 	</section>
 
 	<!-- Footer Section -->
@@ -146,10 +159,6 @@
 	<script src="js/jquery.parallax.js"></script>
 	<script src="js/smoothscroll.js"></script>
 	<script src="js/custom.js"></script>
-	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-	<script src="js/video.js"></script>
-	<script src="https://apis.google.com/js/client.js?onload=init"></script>
-
-
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>
