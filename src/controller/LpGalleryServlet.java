@@ -27,10 +27,6 @@ public class LpGalleryServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// LpDao lpDao = DatabaseManager.getInstance().getDaoFactory().getLpDAO();
-		// List<Lp> lista = lpDao.findAll();
-		// request.setAttribute("lista_lp", lista);
 		GruppoDao gDao = DatabaseManager.getInstance().getDaoFactory().getGruppoDAO();
 		RequestDispatcher rd = request.getRequestDispatcher("galleryLp.jsp");
 		List<Gruppo> bands = gDao.findAll();

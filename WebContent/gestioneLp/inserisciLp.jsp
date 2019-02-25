@@ -126,17 +126,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-2">
+                        <div class="col-md-3 col-sm-2">
                             <h4>Imagine di Copertina : </h4>
                             <input type="file" accept="image/*" onchange="previewFile()"><br>
                         </div>
                         <div class="col-md-6 col-sm-2">
-                            <img src="./images/vynil_tumb.jpeg" width="400" alt="Image preview...">
+                            <img src="./images/vynil_tumb.jpeg" width="540" alt="Image preview...">
                             <input type="hidden" name="url_copertina" id="url_copertina" />
                         </div>
+                        <div class="col-md-3 col-sm-2"></div>
                     </div>
-                    <div class="col-md-12 col-sm-2">
-                        <input type="submit" value="Submit" class="form-control" id="submit">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-2">
+                            <div class="col-md-3 col-sm-2"></div>
+                            <div class="col-md-6 col-sm-2">
+                                <input type="submit" value="Inserisci LP" class="form-control" id="submit">
+                            </div>
+                            <div class="col-md-3 col-sm-2"></div>
+                        </div>
                     </div>
                 </form>
             </div>

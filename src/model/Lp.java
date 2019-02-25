@@ -98,6 +98,9 @@ public class Lp implements Comparable<Lp> {
 
 	@Override
 	public int compareTo(Lp arg0) {
-		return this.titolo.compareTo(arg0.getTitolo());
+		Integer l1 = this.getAnno();
+		Integer l2 = arg0.getAnno();
+		
+		return l1.compareTo(l2);
 	}
 }

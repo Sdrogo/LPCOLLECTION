@@ -199,13 +199,10 @@ public class LpDaoJDBC implements LpDao {
 	public void delete(Lp lp) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String delete = "delete FROM lp WHERE id = ? ";
+			String delete = "delete FROM lp WHERE id_lp = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
-			statement.setLong(1, lp.getId());
-			connection.setAutoCommit(false);
-			connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);			
+			statement.setLong(1, lp.getId());		
 			statement.executeUpdate();
-			connection.commit();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {

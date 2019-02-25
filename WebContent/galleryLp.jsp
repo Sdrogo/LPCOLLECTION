@@ -77,9 +77,9 @@
     <section id="home" class="main-blog parallax-section">
         <div class="overlay"></div>
         <div id="particles-js" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
-            unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
-        <div class="col-md-12 col-sm-6" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
             unselectable="on" onselectstart="return false;" onmousedown="return false;">
+        <div class="col-md-12 col-sm-6" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+            unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
             <h1>Lp's Gallery</h1>
             <h3>"There's no romance in singing about an iPod"</h3>
             <p></p>

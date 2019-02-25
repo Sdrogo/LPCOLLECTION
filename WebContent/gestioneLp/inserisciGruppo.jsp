@@ -93,19 +93,37 @@
         <div class="container">
             <form name="formLp" id="formLp" method="post" action="inserisciGruppo">
                 <div class="row">
-                    <div class="col-md-6 col-sm-2">
-                        <h4>Nome : </h4>
-                        <input type="text" name="nome" class="form-control" id="nome" required="required" onchange="func()">
-                    </div>
-                    <div class="col-md-6 col-sm-2">
-                        <h4>Foto del Gruppo : </h4>
-                        <input type="file" accept="image/*" onchange="previewFile()"><br>
-                        <img src="./images/my-band.jpg" width="400" alt="Image preview...">
-                        <input type="hidden" name="url_photo" id="url_photo" />
+                    <div class="col-md-12 col-sm-2">
+                        <div class="col-md-2 col-sm-2"></div>
+                        <div class="col-md-6 col-sm-2">
+                            <h4>Nome : </h4>
+                            <input type="text" name="nome" class="form-control" id="nome" required="required" onchange="func()">
+                        </div>
+                        <div class="col-md-4 col-sm-2">
+                            <h4>Foto del Gruppo : </h4>
+                            <input type="file" accept="image/*" onchange="previewFile()"><br>
+
+                            <input type="hidden" name="url_photo" id="url_photo" />
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <input type="submit" value="Submit" class="form-control" id="submit">
+                    <div class="col-md-12 col-sm-2">
+                        <div class="col-md-3 col-sm-2"></div>
+                        <div class="col-md-6 col-sm-2">
+                            <img src="./images/my-band.jpg" width="540" alt="Image preview...">
+                        </div>
+                        <div class="col-md-3 col-sm-2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-2">
+                        <div class="col-md-3 col-sm-2"></div>
+                        <div class="col-md-6 col-sm-2">
+                            <input type="submit" value="Inserisci LP" class="form-control" id="submit">
+                        </div>
+                        <div class="col-md-3 col-sm-2"></div>
+                    </div>
                 </div>
             </form>
         </div>
