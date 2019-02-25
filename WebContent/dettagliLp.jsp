@@ -76,7 +76,7 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12">
 					<div class="col-md-6 col-sm-12">
-						<img src="${lp.getCopertina()}" width="500">
+						<img src="${cop.getCopertina()}" width="500">
 					</div>
 					<div class="col-md-6 col-sm-12">
 						<h3>Anno : ${lp.getAnno()}</h3>

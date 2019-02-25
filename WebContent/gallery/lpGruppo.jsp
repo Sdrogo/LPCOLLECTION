@@ -78,7 +78,7 @@
 			<div class="col-md-12 col-sm-12">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
-						<img src="${gruppo.getUrl_photo()}" width="500">
+						<img src="${photo_gruppo.getUrl_photo()}" width="500">
 					</div>
 				</div>
 				<c:forEach items="${lista_lp}" var="disco">

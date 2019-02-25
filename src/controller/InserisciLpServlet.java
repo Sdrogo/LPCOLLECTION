@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import persistence.DatabaseManager;
+import persistence.dao.CopertinaDao;
 import persistence.dao.GruppoDao;
 import persistence.dao.LpDao;
+import model.Copertina;
 import model.Gruppo;
 import model.Lp;
 
@@ -30,9 +32,12 @@ public class InserisciLpServlet extends HttpServlet {
 		Gruppo g = gDao.findByPrimaryKey(id_gruppo);
 		String url = req.getParameter("url_copertina");
 		if (!lpDao.findByName(titolo)) {
-			Lp new_lp = new Lp(persistence.DataSource.getInstance().getConnection(), titolo, anno, genere, url,
-					id_gruppo);
+			Lp new_lp = new Lp(persistence.DataSource.getInstance().getConnection(), titolo, anno, genere, id_gruppo);
+			Copertina c = new Copertina(new_lp.getId());
+			CopertinaDao cDao =  DatabaseManager.getInstance().getDaoFactory().getCopertinaDao();
+			c.setCopertina(url);
 			lpDao.save(new_lp);
+			cDao.save(c);
 			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 			rd.forward(req, resp);
 		}

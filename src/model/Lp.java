@@ -6,32 +6,29 @@ import persistence.IdBroker;
 
 public class Lp implements Comparable<Lp> {
 
-	private Long id;
+	private Long id_lp;
 	private String titolo;
 	private Long id_gruppo;
 	private String genere;
 	private int anno;
-	private String copertina;
-
 	public Lp(Connection connection) {
-		this.id = IdBroker.getId(connection);
+		this.id_lp = IdBroker.getId(connection);
 	}
 
 	public Lp() {
 
 	}
 
-	public Lp(Connection connection, String titolo, int anno, String genere, String copertina, Long id_gruppo) {
-		this.id = IdBroker.getId(connection);
+	public Lp(Connection connection, String titolo, int anno, String genere, Long id_gruppo) {
+		this.id_lp = IdBroker.getId(connection);
 		this.titolo = titolo;
 		this.anno = anno;
 		this.genere = genere;
-		this.copertina = copertina;
 		this.id_gruppo = id_gruppo;
 	}
 
 	public Long getId() {
-		return this.id;
+		return this.id_lp;
 	}
 
 	public String getTitolo() {
@@ -46,10 +43,6 @@ public class Lp implements Comparable<Lp> {
 		return this.anno;
 	}
 
-	public String getCopertina() {
-		return this.copertina;
-	}
-
 	public Long getIdGruppo() {
 		return this.id_gruppo;
 	}
@@ -59,7 +52,7 @@ public class Lp implements Comparable<Lp> {
 	}
 
 	public void setId(long c) {
-		this.id = c;
+		this.id_lp = c;
 	}
 
 	public void setTitolo(String c) {
@@ -74,14 +67,10 @@ public class Lp implements Comparable<Lp> {
 		this.anno = a;
 	}
 
-	public void setCopertina(String u) {
-		this.copertina = u;
-	}
-
 	@Override
 	public String toString() {
 		StringBuffer str = new StringBuffer("LP [");
-		str.append("ID : " + this.getId() + ", " + this.getTitolo() + "]\n" + this.copertina);
+		str.append("ID : " + this.getId() + ", " + this.getTitolo() + "]\n");
 		return str.toString();
 	}
 

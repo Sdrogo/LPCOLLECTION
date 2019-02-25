@@ -28,14 +28,13 @@ public class LpDaoJDBC implements LpDao {
 		}
 		if(!findByName(lp.getTitolo())){
 			try {
-				String insert = "insert into lp (id_lp, titolo, anno, genere, url_copertina, id_gruppo) values (?,?,?,?,?,?)";
+				String insert = "insert into lp (id_lp, titolo, anno, genere, id_gruppo) values (?,?,?,?,?)";
 				PreparedStatement statement = connection.prepareStatement(insert);
 				statement.setLong(1, lp.getId());
 				statement.setString(2, lp.getTitolo());
 				statement.setInt(3, lp.getAnno());
 				statement.setString(4, lp.getGenere());
-				statement.setString(5, lp.getCopertina());
-				statement.setLong(6, lp.getIdGruppo());
+				statement.setLong(5, lp.getIdGruppo());
 				statement.executeUpdate();
 				this.update(lp);
 				} catch (SQLException e) {
@@ -94,7 +93,6 @@ public class LpDaoJDBC implements LpDao {
 				lp.setTitolo(result.getString("titolo"));
 				lp.setAnno(result.getInt("anno"));
 				lp.setGenere(result.getString("genere"));
-				lp.setCopertina(result.getString("url_copertina"));
 				lp.setIdGruppo(result.getLong("id_gruppo"));
 			}
 		} catch (SQLException e) {
@@ -166,14 +164,13 @@ public class LpDaoJDBC implements LpDao {
 	public void update(Lp lp) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update lp SET titolo = ?, anno = ?, genere = ?, url_copertina = ?, id_gruppo = ? WHERE id_lp = ?";
+			String update = "update lp SET titolo = ?, anno = ?, genere = ?, id_gruppo = ? WHERE id_lp = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, lp.getTitolo());
 			statement.setInt(2, lp.getAnno());
 			statement.setString(3, lp.getGenere());
-			statement.setString(4, lp.getCopertina());
-			statement.setLong(5, lp.getIdGruppo());
-			statement.setLong(7, lp.getId());
+			statement.setLong(4, lp.getIdGruppo());
+			statement.setLong(5, lp.getId());
 			
 			statement.executeUpdate();
 		}catch (SQLException e) {

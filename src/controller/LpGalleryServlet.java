@@ -16,7 +16,7 @@ import persistence.DatabaseManager;
 import persistence.dao.GruppoDao;
 import persistence.dao.LpDao;
 
-@WebServlet("/GalleryServlet")
+@WebServlet("/LpGalleryServlet")
 public class LpGalleryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,9 +28,9 @@ public class LpGalleryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		GruppoDao gDao = DatabaseManager.getInstance().getDaoFactory().getGruppoDAO();
-		RequestDispatcher rd = request.getRequestDispatcher("galleryLp.jsp");
 		List<Gruppo> bands = gDao.findAll();
 		request.setAttribute("lista_gruppi", bands);
+		RequestDispatcher rd = request.getRequestDispatcher("gallery/galleryLp.jsp");
 		rd.forward(request, response);
 	}
 

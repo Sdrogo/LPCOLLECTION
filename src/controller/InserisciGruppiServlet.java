@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Gruppo;
+import model.Photo;
 import persistence.DatabaseManager;
 import persistence.dao.GruppoDao;
+import persistence.dao.PhotoDao;
 
 public class InserisciGruppiServlet extends HttpServlet {
 
@@ -26,8 +28,12 @@ public class InserisciGruppiServlet extends HttpServlet {
 		if (nome != "" && nome != null && !gDao.findByName(nome)) {
 			Gruppo new_gruppo = new Gruppo(persistence.DataSource.getInstance().getConnection());
 			new_gruppo.setNome(nome);
-			new_gruppo.setUrl_photo(url_photo);
+			Photo p = new Photo(new_gruppo.getId());
+			PhotoDao pDao = DatabaseManager.getInstance().getDaoFactory().getPhotoDao();
+			p.setUrl_photo(url_photo);
 			gDao.save(new_gruppo);
+			pDao.save(p);
+			
 		}
 		RequestDispatcher rd = req.getRequestDispatcher("gestioneLp/inserisciGruppo.jsp");
 		rd.forward(req, resp);

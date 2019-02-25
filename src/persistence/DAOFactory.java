@@ -1,7 +1,6 @@
 package persistence;
 
-import persistence.dao.GruppoDao;
-import persistence.dao.LpDao;
+import persistence.dao.*;
 
 public abstract class DAOFactory {
 
@@ -23,7 +22,11 @@ public abstract class DAOFactory {
 	public abstract LpDao getLpDAO();
 
 	public abstract GruppoDao getGruppoDAO();
+	
+	public abstract CopertinaDao getCopertinaDao();
+	
+	public abstract PhotoDao getPhotoDao();
 
 	public abstract persistence.UtilDao getUtilDAO();
-
+	
 }
