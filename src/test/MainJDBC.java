@@ -14,7 +14,7 @@ public class MainJDBC {
 		// util.dropDatabase();
 		// util.createDatabase();
 		LpDao lpDao = DatabaseManager.getInstance().getDaoFactory().getLpDAO();
-		Lp l = lpDao.findByPrimaryKey(Long.parseLong("5494"));
+		Lp l = lpDao.findByPrimaryKey(Long.parseLong(""));
 		lpDao.delete(l);
 	}
 }

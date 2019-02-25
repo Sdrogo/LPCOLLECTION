@@ -96,7 +96,6 @@ public class LpDaoJDBC implements LpDao {
 				lp.setGenere(result.getString("genere"));
 				lp.setCopertina(result.getString("url_copertina"));
 				lp.setIdGruppo(result.getLong("id_gruppo"));
-				lp.setNomeGrupo(result.getString("nome_gruppo"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -167,14 +166,13 @@ public class LpDaoJDBC implements LpDao {
 	public void update(Lp lp) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update lp SET titolo = ?, anno = ?, genere = ?, url_copertina = ?, id_gruppo = ?, nome_gruppo = ? WHERE id_lp = ?";
+			String update = "update lp SET titolo = ?, anno = ?, genere = ?, url_copertina = ?, id_gruppo = ? WHERE id_lp = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, lp.getTitolo());
 			statement.setInt(2, lp.getAnno());
 			statement.setString(3, lp.getGenere());
 			statement.setString(4, lp.getCopertina());
 			statement.setLong(5, lp.getIdGruppo());
-			statement.setString(6, lp.getNomeGruppo());
 			statement.setLong(7, lp.getId());
 			
 			statement.executeUpdate();
@@ -200,6 +198,7 @@ public class LpDaoJDBC implements LpDao {
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String delete = "delete FROM lp WHERE id_lp = ? ";
+			System.out.println(lp.getId());
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.setLong(1, lp.getId());		
 			statement.executeUpdate();

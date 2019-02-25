@@ -28,11 +28,10 @@ public class InserisciLpServlet extends HttpServlet {
 		Long id_gruppo = Long.parseLong(req.getParameter("id_gruppo"));
 		GruppoDao gDao = DatabaseManager.getInstance().getDaoFactory().getGruppoDAO();
 		Gruppo g = gDao.findByPrimaryKey(id_gruppo);
-		String nomeGruppo = g.getNome();
 		String url = req.getParameter("url_copertina");
 		if (!lpDao.findByName(titolo)) {
 			Lp new_lp = new Lp(persistence.DataSource.getInstance().getConnection(), titolo, anno, genere, url,
-					id_gruppo, nomeGruppo);
+					id_gruppo);
 			lpDao.save(new_lp);
 			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 			rd.forward(req, resp);
