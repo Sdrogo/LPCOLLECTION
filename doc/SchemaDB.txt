@@ -1,4 +1,4 @@
-lp(id_lp*, titolo, anno, genere, url_copertina,id_gruppo**)
-gruppo(id_gruppo*,nome, url_photo)
+lp(id_lp*, titolo, anno, genereid_gruppo**)
+gruppo(id_gruppo*,nome)
 copertina(id_lp*, url_copertina)
 photo(id_gruppo*, url_photo)

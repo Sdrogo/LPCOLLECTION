@@ -81,17 +81,21 @@
                     <h2>Sand us your feedback</h2>
                     <form name="tell" id="tell" method="post" action="send_mail.php" autocomplete="on">
                         <div class="col-md-4 col-sm-4">
+                            <h4>Nome:</h4>
                             <input type="text" name="nome_mittente" class="form-control" id="nome_mittente" placeholder="Nome"
                                 value="">
                         </div>
                         <div class="col-md-4 col-sm-4">
+                            <h4>Email:</h4>
                             <input type="email" name="mail_mittente" class="form-control" id="email_mittente"
                                 placeholder="Email" value="">
                         </div>
                         <div class="col-md-4 col-sm-4">
+                            <h4>Subject:</h4>
                             <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">
                         </div>
                         <div class="col-md-12 col-sm-12">
+                            <h4>Messaggio:</h4>
                             <textarea name="messaggio" rows="10" cols="30" class="form-control" id="message"
                                 placeholder="Message"></textarea>
                         </div>
