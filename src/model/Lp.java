@@ -50,7 +50,7 @@ public class Lp implements Comparable<Lp> {
 	public void setIdGruppo(Long g) {
 		this.id_gruppo = g;
 	}
-
+	
 	public void setId(long c) {
 		this.id_lp = c;
 	}

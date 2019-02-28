@@ -79,13 +79,14 @@ public class PhotoDaoJDBC implements PhotoDao {
 		List<Photo> copertine = new ArrayList<>();
 		Connection connection = dataSource.getConnection();
 		try {
-			Photo g = new Photo();
 			PreparedStatement statement;
 			String query = "select * from photo";
 			statement = connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
-				g = findByPrimaryKey(result.getLong("id_gruppo"));
+				Photo g = new Photo();
+				g.setId(result.getLong("id_gruppo"));
+				g.setUrl_photo(result.getString("url_photo"));
 				copertine.add(g);
 			}
 		} catch (SQLException e) {

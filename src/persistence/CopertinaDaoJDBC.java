@@ -80,13 +80,15 @@ public class CopertinaDaoJDBC implements CopertinaDao {
 		Connection connection = this.dataSource.getConnection();
 		List<Copertina> copertine = new ArrayList<>();
 		try {
-			Copertina g = new Copertina();
+			
 			PreparedStatement statement;
 			String query = "select * from copertina";
 			statement = connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
-				g = findByPrimaryKey(result.getLong("id_lp"));
+				Copertina g = new Copertina();
+				g.setId(result.getLong("id_lp"));
+				g.setCopertina(result.getString("url_copertina"));
 				copertine.add(g);
 			}
 		} catch (SQLException e) {

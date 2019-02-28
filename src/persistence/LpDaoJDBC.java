@@ -112,13 +112,18 @@ public class LpDaoJDBC implements LpDao {
 		List<Lp> lista = new ArrayList<>();
 		Connection connection = dataSource.getConnection();
 		try {
-			Lp lp = new Lp();
+			
 			PreparedStatement statement;
 			String query = "select * from Lp";
 			statement = connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
-				lp = findByPrimaryKey(result.getLong("id_lp"));
+				Lp lp = new Lp();
+				lp.setId(result.getLong("id_lp"));
+				lp.setTitolo(result.getString("titolo"));
+				lp.setAnno(result.getInt("anno"));
+				lp.setIdGruppo(result.getLong("id_gruppo"));
+				lp.setGenere(result.getString("genere"));
 				lista.add(lp);
 			}
 		} catch (SQLException e) {
@@ -138,14 +143,18 @@ public class LpDaoJDBC implements LpDao {
 		List<Lp> lista = new ArrayList<>();
 		Connection connection = dataSource.getConnection();
 		try {
-			Lp lp = new Lp();
 			PreparedStatement statement;
 			String query = "select * from Lp where id_gruppo = ?";
 			statement = connection.prepareStatement(query);
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
-				lp = findByPrimaryKey(result.getLong("id_lp"));
+				Lp lp = new Lp();
+				lp.setId(result.getLong("id_lp"));
+				lp.setTitolo(result.getString("titolo"));
+				lp.setAnno(result.getInt("anno"));
+				lp.setIdGruppo(result.getLong("id_gruppo"));
+				lp.setGenere(result.getString("genere"));
 				lista.add(lp);
 			}
 		} catch (SQLException e) {

@@ -103,14 +103,16 @@ public class GruppoDaoJDBC implements GruppoDao {
 	public List<Gruppo> findAll() {
 		Connection connection = this.dataSource.getConnection();
 		List<Gruppo> gruppi = new ArrayList<>();
-		Gruppo g = new Gruppo();
+		
 		PreparedStatement statement;
 		try {
 			String query = "select * from Gruppo";
 			statement = connection.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			while (result.next()) {
-				g = findByPrimaryKey(result.getLong("id_gruppo"));
+				Gruppo g = new Gruppo();
+				g.setId(result.getLong("id_gruppo"));
+				g.setNome(result.getString("nome"));
 				gruppi.add(g);
 			}
 		} catch (SQLException e) {
