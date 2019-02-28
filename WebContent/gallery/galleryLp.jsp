@@ -56,7 +56,7 @@
 
 
     <!-- Home Section -->
-	<section id="home" class="main-blog parallax-section">
+	<section id="home" class="main-gallery parallax-section">
 		<div class="overlay"></div>
 		<div id="particles-js"
 			style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;"
