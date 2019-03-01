@@ -159,11 +159,10 @@ public class GruppoDaoJDBC implements GruppoDao {
 	public void delete(Gruppo gruppo) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String delete = "delete FROM Gruppo WHERE id = ? ";
+			String delete = "delete FROM Gruppo WHERE id_gruppo = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.setLong(1, gruppo.getId());
 			statement.executeUpdate();
-			connection.commit();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
 		} finally {

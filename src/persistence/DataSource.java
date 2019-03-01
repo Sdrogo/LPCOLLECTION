@@ -7,8 +7,8 @@ public class DataSource {
 	final private String userName;// = "postgres";
 	final private String password;// = "postgres";
 
-	//private static final DataSource data = new DataSource("jdbc:postgresql://localhost:5432/LpCollection", "postgres", "postgres");
-	private static final DataSource data = new DataSource("jdbc:postgresql://stampy.db.elephantsql.com:5432/gpdrutua", "gpdrutua", "XVIWLXmFq3Gr_8p0stUP1Q_dnbJQlmgT");
+	private static final DataSource data = new DataSource("jdbc:postgresql://localhost:5432/LpCollection", "postgres", "postgres");
+	//private static final DataSource data = new DataSource("jdbc:postgresql://stampy.db.elephantsql.com:5432/gpdrutua", "gpdrutua", "XVIWLXmFq3Gr_8p0stUP1Q_dnbJQlmgT");
 
 	public DataSource(String dbURI, String userName, String password) {
 		try {
